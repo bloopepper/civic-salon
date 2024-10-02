@@ -62,3 +62,6 @@ Dockerfile
 
 # macOS
 .DS_Store
+
+# test
+test/

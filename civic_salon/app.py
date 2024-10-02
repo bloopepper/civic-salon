@@ -24,7 +24,7 @@ tags_metadata = [
 
 
 app = FastAPI(
-    title='catalog Bot - api',
+    title='civic salon- api',
     docs_url="/docs",
     openapi_url="/openapi.json",
     openapi_tags=tags_metadata
