@@ -202,18 +202,22 @@ const PostDetail = ({ t, selectedPost, setCurrentScreen, isLoading, handleAIButt
             <Button size="sm">{t.submit}</Button>
         </div>
         {isChatOpen && (
-            <div className="fixed bottom-4 right-4 w-80 bg-background border border-border shadow-lg rounded-lg overflow-hidden flex flex-col" style={{ height: 'calc(100% - 8rem)' }}>
+            <div
+                className="fixed bottom-16 right-4 w-80 bg-background border border-border shadow-lg rounded-lg overflow-hidden flex flex-col"
+                style={{height: 'calc(100% - 12rem)'}}>
                 <div className="flex justify-between items-center p-4 border-b border-border">
                     <h3 className="text-lg font-semibold">{t.chatAI}: {activeChatSection === 'background' ? t.background : t.civicThoughts}</h3>
                     <Button variant="ghost" size="sm" onClick={() => setIsChatOpen(false)}>
-                        <X className="h-4 w-4" />
+                        <X className="h-4 w-4"/>
                     </Button>
                 </div>
                 <ScrollArea className="flex-grow p-4">
                     <div className="space-y-4">
                         {chatMessages.map((message, index) => (
-                            <div key={index} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                <div className={`max-w-[80%] p-2 rounded-lg ${message.type === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
+                            <div key={index}
+                                 className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
+                                <div
+                                    className={`max-w-[80%] p-2 rounded-lg ${message.type === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
                                     {message.content}
                                 </div>
                             </div>
@@ -229,7 +233,7 @@ const PostDetail = ({ t, selectedPost, setCurrentScreen, isLoading, handleAIButt
                             className="flex-grow"
                         />
                         <Button type="submit" size="sm">
-                            <Send className="h-4 w-4" />
+                            <Send className="h-4 w-4"/>
                             <span className="sr-only">{t.send}</span>
                         </Button>
                     </div>

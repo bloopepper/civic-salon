@@ -8,7 +8,8 @@ type MobileNavBarProps = {
 };
 
 const MobileNavBar = ({ t, setCurrentScreen }:MobileNavBarProps) => (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 flex justify-around items-center p-2 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t border-border">
+    <nav
+        className="lg:hidden fixed bottom-0 left-0 right-0 flex justify-around items-center p-2 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t border-border">
         <Button variant="ghost" size="icon" aria-label={t.home} onClick={() => setCurrentScreen('home')}>
             <Home className="h-6 w-6"/>
         </Button>
