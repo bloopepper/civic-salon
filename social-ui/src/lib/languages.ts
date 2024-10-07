@@ -39,6 +39,9 @@ export const languages = {
         send: 'Send',
         discussBackground: 'Explore Background',
         discussCivicThoughts: 'Discuss Thoughts',
+        yourPosts: 'Your Posts',
+        posts: 'Posts',
+        yourReplies: 'Your Replies',
     },
     zh: {
         home: '首頁',
@@ -79,6 +82,9 @@ export const languages = {
         send: '发送',
         discussBackground: '探索背景',
         discussCivicThoughts: '讨论影响',
+        yourPosts: '你的帖子',
+        posts: '帖子',
+        yourReplies: '你的回复',
     },
     ja: {
         home: 'ホーム',
@@ -119,6 +125,9 @@ export const languages = {
         send: '送信',
         discussBackground: '背景を探る',
         discussCivicThoughts: '影響を議論',
+        yourPosts: 'あなたの投稿',
+        posts: '投稿',
+        yourReplies: 'あなたの返信',
     },
     hi: {
         home: 'होम',
@@ -159,6 +168,9 @@ export const languages = {
         send: 'भेजें',
         discussBackground: 'पृष्ठभूमि की खोज',
         discussCivicThoughts: 'प्रभाव पर चर्चा',
+        yourPosts: 'आपकी पोस्ट',
+        posts: 'पोस्ट',
+        yourReplies: 'आपकी प्रतिक्रियाएँ',
     },
     th: {
         home: 'หน้าแรก',
@@ -199,5 +211,8 @@ export const languages = {
         send: 'ส่ง',
         discussBackground: 'สำรวจบริบท',
         discussCivicThoughts: 'อภิปรายผลกระทบ',
+        yourPosts: 'โพสต์ของคุณ',
+        posts: 'โพสต์',
+        yourReplies: 'การตอบกลับของคุณ',
     },
 }

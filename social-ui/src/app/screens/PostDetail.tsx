@@ -32,6 +32,7 @@ type PostDetailProps = {
         }>;
     };
     setCurrentScreen: (screen: string) => void;
+    handleBackButton: () => void;
     isLoading: boolean;
     handleAIButtonClick: () => void;
     showBackgroundSection: boolean;
@@ -50,10 +51,10 @@ type PostDetailProps = {
     setChatInput: (input: string) => void;
 }
 
-const PostDetail = ({ t, selectedPost, setCurrentScreen, isLoading, handleAIButtonClick, showBackgroundSection, handleChatAIButtonClick, showFullBackground, setShowFullBackground, showCivicThoughtsSection, setShowFullCivicThoughts, showFullCivicThoughts, isChatOpen, activeChatSection, setIsChatOpen, chatMessages, handleChatSubmit, chatInput, setChatInput }: PostDetailProps) => (
+const PostDetail = ({ t, selectedPost, setCurrentScreen, handleBackButton, isLoading, handleAIButtonClick, showBackgroundSection, handleChatAIButtonClick, showFullBackground, setShowFullBackground, showCivicThoughtsSection, setShowFullCivicThoughts, showFullCivicThoughts, isChatOpen, activeChatSection, setIsChatOpen, chatMessages, handleChatSubmit, chatInput, setChatInput }: PostDetailProps) => (
     <div className="p-4 max-w-2xl mx-auto relative">
         <div className="flex justify-between items-center mb-4">
-            <Button variant="ghost" onClick={() => setCurrentScreen('home')} className="flex items-center">
+            <Button variant="ghost" onClick={handleBackButton} className="flex items-center">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 {t.back}
             </Button>

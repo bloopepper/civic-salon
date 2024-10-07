@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import PostDetail from "@/app/screens/PostDetail";
 import Messages from "@/app/screens/Messages";
+import Profile from "@/app/screens/Profile";
 
 
 
@@ -22,6 +23,7 @@ export default function ResponsiveSocialMediaLayout() {
     const [currentLanguage, setCurrentLanguage] = useState('en')
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
     const [currentScreen, setCurrentScreen] = useState('home')
+    const [previousScreen, setPreviousScreen] = useState('home')
     const [selectedPost, setSelectedPost] = useState(null)
     const [showFullBackground, setShowFullBackground] = useState(false)
     const [showFullCivicThoughts, setShowFullCivicThoughts] = useState(false)
@@ -44,6 +46,7 @@ export default function ResponsiveSocialMediaLayout() {
     }
 
     const handlePostClick = (post:any) => {
+        setPreviousScreen(currentScreen)
         setSelectedPost(post)
         setCurrentScreen('postDetail')
         setShowBackgroundSection(false)
@@ -51,6 +54,10 @@ export default function ResponsiveSocialMediaLayout() {
         setIsLoading(false)
         setIsChatOpen(false)
         setActiveChatSection(null)
+    }
+
+    const handleBackButton = () => {
+        setCurrentScreen(previousScreen)
     }
 
     const handleAIButtonClick = () => {
@@ -106,38 +113,24 @@ export default function ResponsiveSocialMediaLayout() {
                         <Button>{t.submit}</Button>
                     </div>
                 )
+            case 'profile':
+                return <Profile
+                            t={t}
+                            handlePostClick={handlePostClick}/>
             case 'messages':
                 return (
                     <Messages
                         t={t}
                     />
                 )
-            case 'profile':
-                return (
-                    <div className="p-4 max-w-2xl mx-auto">
-                        <h2 className="text-2xl font-bold mb-4">{t.profile}</h2>
-                        <div className="flex items-center space-x-4 mb-4">
-                            <Avatar className="w-20 h-20">
-                                <AvatarImage src="https://i.pravatar.cc/80?img=1" alt={`${t.user} ${t.avatar}`} />
-                                <AvatarFallback>U1</AvatarFallback>
-                            </Avatar>
-                            <div>
-                                <h3 className="text-xl font-semibold">{t.user} 1</h3>
-                                <p className="text-muted-foreground">user1@example.com</p>
-                            </div>
-                        </div>
-                        <div className="space-y-4">
-                            {/* User posts would go here */}
-                            <p>User posts will be displayed here.</p>
-                        </div>
-                    </div>
-                )
+
             case 'postDetail':
                 return (
                     <PostDetail
                         t={t}
                         selectedPost={selectedPost}
                         setCurrentScreen={setCurrentScreen}
+                        handleBackButton={handleBackButton}
                         isChatOpen={isChatOpen}
                         setIsChatOpen={setIsChatOpen}
                         chatMessages={chatMessages}
