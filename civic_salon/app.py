@@ -54,7 +54,7 @@ async def get_post_link(post_id: str = Query(..., description="The ID of the pos
     if not post_id or not post_link:
         raise HTTPException(status_code=400, detail="post_id and post_link are required.")
     
-    # 回傳前端傳來的 post_id 和 post_link
+   
     return {
         "post_id": post_id,
         "post_link": post_link
