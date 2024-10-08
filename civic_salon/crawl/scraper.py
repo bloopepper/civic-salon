@@ -76,6 +76,41 @@ class UniversalScraper:
             self.driver.quit()
             self.driver = None
 
+    def extract_links(self,url):
+        # 設置 Selenium 選項
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")  # 無頭模式，背景運行瀏覽器
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+
+        # 使用 ChromeDriverManager 自動下載並設置 WebDriver
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+
+        links = []  # 初始化鏈接列表
+
+        # 打開你的目標網址
+        driver.get(url)
+
+        # 等待特定元素（<a> 標籤）加載，最多等待 10 秒
+        try:
+            # WebDriverWait 的使用，等待直到至少有一個 <a> 元素加載完成
+            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'a')))
+            
+            # 查找所有 <a> 標籤
+            a_elements = driver.find_elements(By.TAG_NAME, 'a')
+
+            # 遍歷所有找到的 <a> 標籤，並提取 href 屬性
+            for link in a_elements:
+                href = link.get_attribute('href')  # 提取 href 屬性的值
+                if href and 'https://news.google.com/' not in href:  # 檢查 href 是否存在且不包含指定 URL
+                    links.append(href)  # 添加到鏈接列表
+        finally:
+            # 關閉瀏覽器
+            driver.quit()
+
+        return links  # 返回鏈接列表
+
     def parse_content(self, html_content):
         if not html_content:
             return None
