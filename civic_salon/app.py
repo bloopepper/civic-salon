@@ -1,8 +1,9 @@
 import os
 from fastapi import FastAPI, Query, HTTPException
 from pydantic import BaseModel
-
 from datetime import datetime
+from civic_salon.crawl.scraper import UniversalScraper 
+from civic_salon.chain.post_geny import PostHelper
 
 llm_deployment_name = os.getenv('deployment_name')
 
@@ -33,7 +34,7 @@ app = FastAPI(
     openapi_url="/openapi.json",
     openapi_tags=tags_metadata
 )
-
+ph = PostHelper()
 
 # Define a function to get a database session
 
@@ -60,6 +61,27 @@ async def get_post_link(post_id: str = Query(..., description="The ID of the pos
         "post_link": post_link
     }
 
+@app.post("related_article")
+async def related_article(post_id: str = Query(..., description="The ID of the post"),
+                          post_link: str = Query(..., description="The URL link to the post")):
+    try:
+        scraper = UniversalScraper()
+        url_content = scraper.get_page_content(post_link)
+        title = url_content.get('title', '')
+        similar_articles = ph.post_summary(title, 3)
+
+        return post_id, title, similar_articles
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.post("article_suggested_prompt")
+async def article_suggested_prompt(post_id: str = Query(..., description="The ID of the post"),
+                                   post_title: str = Query(..., description="The article title, or user's prompt")):
+    try:
+        insight_questions = ph.question_generate(post_title)
+        return post_id, insight_questions
+    except Exception as e:
+        return {"error": str(e)}
 
 
 
