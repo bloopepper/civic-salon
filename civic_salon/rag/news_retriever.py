@@ -12,7 +12,7 @@ sp_client_secret = os.environ.get("SP_CLIENT_SECRET")
 
 class SourceRetriever:
 
-    def retrieve_news(query_text:str, num_results:int =5) -> dict:
+    def retrieve_news(self,query_text:str, num_results:int =5) -> dict:
 
         vsc = VectorSearchClient(
             workspace_url=workspace_url,
@@ -29,7 +29,7 @@ class SourceRetriever:
         )   
         return results
 
-    def retrieve_news_content(search_vector_result:dict):
+    def retrieve_news_content(self,search_vector_result:dict):
         scraper = UniversalScraper()
         docs = []
         for row in search_vector_result['result']['data_array']:
