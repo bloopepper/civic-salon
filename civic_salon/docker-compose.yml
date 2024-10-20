@@ -1,0 +1,25 @@
+# version: '3'
+# services:
+#   api:
+#     build: .
+#     ports:
+#       - "8000:8000"
+#     # environment:
+#     #   - DATABASE_URL=your-databricks-jdbc-url
+#     networks:
+#       - civic-network
+
+# networks:
+#   civic-network:
+#     driver: bridge
+
+version: '3.8'
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/civic_salon
+    environment:
+      - deployment_name=my_deployment
