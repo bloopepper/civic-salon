@@ -14,8 +14,9 @@ This project uses Docker to containerize the Civic Salon Python application. Fol
    git clone https://github.com/bloopepper/civic-salon.git
    cd civic-salon
    ```
+2. Update the /app/.env file to make sure the fastapi can run successfully.
 
-2. Build the Docker image from the project root directory:
+3. Build the Docker image from the project root directory:
    ```
    docker build -t civic-salon .
    ```
@@ -33,7 +34,7 @@ This starts the container and maps port 8000 inside the container to port 8000 o
 
 ## Accessing the Application
 
-The Civic Salon application should now be running at `http://localhost:8000`.
+The Civic Salon application should now be running at `http://localhost:8000\docs`.
 
 ## Stopping the Container
 
@@ -66,4 +67,4 @@ If problems persist, check the Docker logs for more information:
 docker logs [container ID]
 ```
 
-For any other issues or questions about the Civic Salon project, please refer to the [
+For any other issues or questions about the Civic Salon project, please refer to the GitHub repository or contact the project maintainers.
