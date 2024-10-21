@@ -1,5 +1,5 @@
-from rag.news_retriever import SourceRetriever
-from llm.chat_news_helper import NewsGeny
+from app.rag.news_retriever import SourceRetriever
+from app.llm.chat_news_helper import NewsGeny
 import json
 
 retriever = SourceRetriever()

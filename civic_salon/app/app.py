@@ -3,14 +3,13 @@ import sys
 from fastapi import FastAPI, Query, HTTPException
 from pydantic import BaseModel
 from datetime import datetime
-from civic_salon.crawl.scraper import UniversalScraper 
-from civic_salon.chain.post_geny import PostHelper
+from app.crawl.scraper import UniversalScraper 
+from app.chain.post_geny import PostHelper
 
 
 # sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-llm_deployment_name = os.getenv('deployment_name')
 
 tags_metadata = [
     {

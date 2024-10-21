@@ -1,7 +1,7 @@
 import os
 import json
 from databricks.vector_search.client import VectorSearchClient
-from civic_salon.crawl.scraper import UniversalScraper 
+from app.crawl.scraper import UniversalScraper 
 from langchain.schema import Document
 
 

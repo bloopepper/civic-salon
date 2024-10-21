@@ -15,11 +15,15 @@
 
 version: '3.8'
 services:
-  api:
+  web:
     build: .
     ports:
       - "8000:8000"
-    volumes:
-      - .:/civic_salon
     environment:
-      - deployment_name=my_deployment
+      - WORKSPACE_URL=${WORKSPACE_URL}
+      - SP_CLIENT_ID=${SP_CLIENT_ID}
+      - SP_CLIENT_SECRET=${SP_CLIENT_SECRET}
+      - DATABRICKS_TOKEN=${DATABRICKS_TOKEN}
+    volumes:
+      - .:/app
+    restart: unless-stopped
