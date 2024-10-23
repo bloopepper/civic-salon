@@ -16,7 +16,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-# .env
+.env
 
 # VS Code settings
 .vscode/
@@ -58,7 +58,7 @@ instance/
 
 # Docker
 docker-compose.override.yml
-Dockerfile
+# Dockerfile
 .dockerignore
 
 # macOS
