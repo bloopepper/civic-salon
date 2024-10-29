@@ -7,7 +7,7 @@ import MobileNavBar from '@/app/components/MobileNavBar'
 import {LangKey, languages} from '@/lib/languages'
 
 import React, { useState } from 'react'
-import { Heart, Share2, MessageSquare, MoreHorizontal } from 'lucide-react'
+import {Heart, Share2, MessageSquare, MoreHorizontal, Key} from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -15,10 +15,11 @@ import { Textarea } from "@/components/ui/textarea"
 import PostDetail from "@/app/screens/PostDetail";
 import Messages from "@/app/screens/Messages";
 import Profile from "@/app/screens/Profile";
+import LoginScreen from "@/app/screens/LoginScreen";
+import {AuthProvider, useAuth} from "@/app/context/AuthContext";
 
 
-
-export default function ResponsiveSocialMediaLayout() {
+function ResponsiveSocialMediaLayout() {
     const [isDarkMode, setIsDarkMode] = useState(false)
     const [currentLanguage, setCurrentLanguage] = useState('en')
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -35,6 +36,10 @@ export default function ResponsiveSocialMediaLayout() {
     const [chatInput, setChatInput] = useState('')
     const [activeChatSection, setActiveChatSection] = useState(null)
     const t = languages[currentLanguage as keyof typeof languages]
+
+    const  [isLoggedIn, setIsLoggedIn] = useState(false)
+
+    const {  login, isAuthenticated } = useAuth();
 
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode)
@@ -91,6 +96,24 @@ export default function ResponsiveSocialMediaLayout() {
             }, 1000)
         }
     }
+
+    const handleLogin = (method, key = '') => {
+        // Here you would typically validate the key or perform other login logic
+        console.log(`Logging in with ${method}${key ? ': ' + key : ''}`)
+        login(key)
+
+        setIsLoggedIn(true)
+    }
+
+
+    if (!isAuthenticated) {
+        return <AuthProvider>
+                <LoginScreen t={t} onLogin={handleLogin} isDarkMode={isDarkMode}
+                             currentLanguage={currentLanguage}
+                             changeLanguage={(language: string) => changeLanguage(language as LangKey)}/>
+            </AuthProvider>
+    }
+
 
     const renderScreen = () => {
         switch (currentScreen) {
@@ -248,3 +271,13 @@ export default function ResponsiveSocialMediaLayout() {
         </div>
     )
 }
+
+const App = () => {
+    return (
+        <AuthProvider>
+            <ResponsiveSocialMediaLayout />
+        </AuthProvider>
+    );
+};
+
+export default App;

@@ -42,6 +42,10 @@ export const languages = {
         yourPosts: 'Your Posts',
         posts: 'Posts',
         yourReplies: 'Your Replies',
+        welcomeBack: 'Welcome Back',
+        enterKey: 'Enter your key',
+        loginWithKey: 'Login with Key',
+        continueAsGuest: 'Continue as Guest',
     },
     zh: {
         home: '首頁',
@@ -85,6 +89,10 @@ export const languages = {
         yourPosts: '你的帖子',
         posts: '帖子',
         yourReplies: '你的回复',
+        welcomeBack: '歡迎回來',
+        enterKey: '輸入您的密鑰',
+        loginWithKey: '使用密鑰登錄',
+        continueAsGuest: '以訪客身份繼續',
     },
     ja: {
         home: 'ホーム',
@@ -128,6 +136,10 @@ export const languages = {
         yourPosts: 'あなたの投稿',
         posts: '投稿',
         yourReplies: 'あなたの返信',
+        welcomeBack: 'お帰りなさい',
+        enterKey: 'キーを入力してください',
+        loginWithKey: 'キーでログイン',
+        continueAsGuest: 'ゲストとして続行',
     },
     hi: {
         home: 'होम',
@@ -171,6 +183,10 @@ export const languages = {
         yourPosts: 'आपकी पोस्ट',
         posts: 'पोस्ट',
         yourReplies: 'आपकी प्रतिक्रियाएँ',
+        welcomeBack: 'वापसी पर स्वागत है',
+        enterKey: 'अपनी कुंजी दर्ज करें',
+        loginWithKey: 'कुंजी के साथ लॉगिन करें',
+        continueAsGuest: 'अतिथि के रूप में जारी रखें',
     },
     th: {
         home: 'หน้าแรก',
@@ -214,5 +230,9 @@ export const languages = {
         yourPosts: 'โพสต์ของคุณ',
         posts: 'โพสต์',
         yourReplies: 'การตอบกลับของคุณ',
+        welcomeBack: 'ยินดีต้อนรับกลับ',
+        enterKey: 'กรุณาใส่รหัสของคุณ',
+        loginWithKey: 'เข้าสู่ระบบด้วยรหัส',
+        continueAsGuest: 'เข้าใช้ชั่วคราว',
     },
 }
