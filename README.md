@@ -1,10 +1,13 @@
+# **Civic Salon README**
+
 # For Back-end
 
-Civic Salon README
-
 **for Development Server**
-run the code "uvicorn app:app --reload"
-then follow the url in browser "http://127.0.0.1:8000/"
+Update the /.env file.
+run the code in terminal 
+cd civic-salon
+"uvicorn app:app --reload"
+Now, follow the url in browser "http://127.0.0.1:8000/"
 
 **for Docker**
 
