@@ -3,10 +3,13 @@
 # For Back-end
 
 **for Development Server**
-Update the /.env file.
+
+Update the /.env file
+
 run the code in terminal 
 cd civic-salon
 "uvicorn app:app --reload"
+
 Now, follow the url in browser "http://127.0.0.1:8000/"
 
 **for Docker**
@@ -14,13 +17,18 @@ Now, follow the url in browser "http://127.0.0.1:8000/"
 This project uses Docker to containerize the Civic Salon Python application. Follow these steps to build and run the Docker container.
 
 Prerequisites
+
 Install Docker
+
 Ensure you have git on your system
+
 Building the Docker Image
 Clone the project:
 
 git clone https://github.com/bloopepper/civic-salon.git
+
 cd civic-salon
+
 Update the /app/.env file to make sure the fastapi can run successfully.
 
 Build the Docker image from the project root directory:
@@ -53,8 +61,11 @@ Troubleshooting
 If you encounter issues, check that:
 
 Docker is correctly installed and running
+
 All necessary files (Dockerfile, pyproject.toml, poetry.lock) are present in the project root
+
 There are no permission issues preventing Docker from accessing necessary files
+
 If problems persist, check the Docker logs for more information:
 
 docker logs [container ID]
@@ -64,13 +75,11 @@ For any other issues or questions about the Civic Salon project, please refer to
 
 # For Front-end
 
-
 This is a Next.js project bootstrapped with create-next-app.
-
 
 **Getting Started**
 
-First, make sure node JS is installed.
+First, make sure node module is installed.
 
 First, run the development server:
 
@@ -92,5 +101,7 @@ This project uses next/font to automatically optimize and load Geist, a new font
 To learn more about Next.js, take a look at the following resources:
 
 Next.js Documentation - learn about Next.js features and API.
+
 Learn Next.js - an interactive Next.js tutorial.
+
 You can check out the Next.js GitHub repository - your feedback and contributions are welcome!
