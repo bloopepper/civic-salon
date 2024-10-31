@@ -108,6 +108,10 @@ You can start editing the page by modifying app/page.tsx. The page auto-updates 
 This project uses next/font to automatically optimize and load Geist, a new font family for Vercel.
 
 # Learn More
+TO learn more about Python, take a look at https://python.org/ 
+
+TO learn more about FastAPI, take a look at https://fastapi.tiangolo.com/ (FastAPI Documentation)
+
 To learn more about Next.js, take a look at the following resources:
 
 Next.js Documentation - learn about Next.js features and API.
@@ -115,3 +119,5 @@ Next.js Documentation - learn about Next.js features and API.
 Learn Next.js - an interactive Next.js tutorial.
 
 You can check out the Next.js GitHub repository - your feedback and contributions are welcome!
+
+# **Thank You**
